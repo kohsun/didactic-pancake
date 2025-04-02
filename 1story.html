@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小軍的一天 - 兒童教育故事</title>
+    <style>
+        /* 基礎樣式設定 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft JhengHei', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* 導覽列 */
+        .navbar {
+            background-color: #4CAF50;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+        
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 20px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #ffeb3b;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        /* 主要內容 */
+        .hero {
+            background-color: #8BC34A;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-in;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeIn 1.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .story-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        
+        .story-intro {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .story-intro h2 {
+            font-size: 2rem;
+            color: #4CAF50;
+            margin-bottom: 15px;
+        }
+        
+        .story-intro p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* 故事場景卡片 */
+        .story-scenes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .scene-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .scene-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .scene-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 3px solid #4CAF50;
+        }
+        
+        .scene-content {
+            padding: 20px;
+        }
+        
+        .scene-content h3 {
+            color: #4CAF50;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .scene-content p {
+            color: #666;
+            font-size: 1rem;
+        }
+        
+        .scene-number {
+            background-color: #4CAF50;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        
+        /* 故事精華部分 */
+        .story-lessons {
+            background-color: #E8F5E9;
+            padding: 60px 20px;
+            margin: 60px 0;
+        }
+        
+        .lessons-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .lessons-container h2 {
+            font-size: 2rem;
+            color: #2E7D32;
+            margin-bottom: 30px;
+        }
+        
+        .lessons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .lesson-item {
+            background-color: white;
+            padding: 30px 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .lesson-item i {
+            font-size: 2.5rem;
+            color: #4CAF50;
+            margin-bottom: 15px;
+        }
+        
+        .lesson-item h3 {
+            color: #2E7D32;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .lesson-item p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        /* 關於部分 */
+        .about-section {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-content h2 {
+            font-size: 2rem;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+        
+        .about-content p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            color: #555;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .about-img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        /* 頁尾 */
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: #4CAF50;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #444;
+            color: white;
+            text-align: center;
+            line-height: 40px;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: #4CAF50;
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* 響應式設計 */
+        @media screen and (max-width: 768px) {
+            .navbar-container {
+                padding: 15px 5%;
+            }
+            
+            .nav-links {
+                position: absolute;
+                right: 0;
+                top: 70px;
+                background-color: #4CAF50;
+                flex-direction: column;
+                width: 100%;
+                transform: translateX(100%);
+                transition: transform 0.5s ease-in;
+                z-index: 1;
+            }
+            
+            .nav-links.active {
+                transform: translateX(0%);
+            }
+            
+            .nav-links li {
+                margin: 0;
+                padding: 15px 40px;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .story-intro h2 {
+                font-size: 1.7rem;
+            }
+            
+            .about-section {
+                flex-direction: column;
+            }
+        }
+        
+        /* 滾動動畫 */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 輪播樣式 */
+        .carousel-container {
+            margin: 50px auto;
+            max-width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .carousel-slide {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .carousel-slide img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .carousel-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .carousel-btn:hover {
+            background-color: #2E7D32;
+        }
+        
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .indicator {
+            width: 12px;
+            height: 12px;
+            background-color: #ccc;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .indicator.active {
+            background-color: #4CAF50;
+            transform: scale(1.2);
+        }
+    </style>
+    <!-- Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <!-- 導覽列 -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="logo">小軍的一天</a>
+            <ul class="nav-links">
+                <li><a href="#home">首頁</a></li>
+                <li><a href="#story">故事</a></li>
+                <li><a href="#lessons">生活教育</a></li>
+                <li><a href="#about">關於我們</a></li>
+                <li><a href="#contact">聯絡我們</a></li>
+            </ul>
+            <div class="hamburger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首頁區域 -->
+    <section id="home" class="hero">
+        <h1>跟著小軍學習成長</h1>
+        <p>透過小軍的一天，讓孩子學習生活自理、友誼分享和責任感的重要性</p>
+    </section>
+
+    <!-- 輪播圖 -->
+    <div class="carousel-container">
+        <div class="carousel-slide">
+            <!-- 修改為image1, image2, image3 -->
+            <img src="media/image1.jpeg" alt="小軍的故事場景1">
+            <img src="media/image2.jpeg" alt="小軍的故事場景2">
+            <img src="media/image3.jpeg" alt="小軍的故事場景3">
+        </div>
+        <div class="carousel-nav">
+            <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i> 上一張</button>
+            <button class="carousel-btn next-btn">下一張 <i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="carousel-indicators"></div>
+    </div>
+
+    <!-- 故事介紹 -->
+    <section id="story" class="story-container">
+        <div class="story-intro fade-in">
+            <h2>小軍的成長故事</h2>
+            <p>每一天都是學習和成長的機會。跟著活潑可愛的小軍一起度過充實的一天，學習生活中的重要價值觀</p>
+        </div>
+
+        <!-- 故事場景 -->
+        <div class="story-scenes">
+            <!-- 場景1 - 修改圖片路徑 -->
+            <div class="scene-card fade-in">
+                <img src="media/image1.jpeg" alt="場景1：小軍起床" class="scene-image">
+                <div class="scene-content">
+                    <span class="scene-number">場景 1</span>
+                    <h3>美好的早晨</h3>
+                    <p>小軍穿著黃色毛衣和靴子，有著捲曲的頭髮和深思熟慮的表情。他起床後打開窗戶，微笑著看著外面的陽光，準備開始新的一天。</p>
+                </div>
+            </div>
+
+            <!-- 場景2 - 修改圖片路徑 -->
+            <div class="scene-card fade-in">
+                <img src="media/image2.jpeg" alt="場景2：小軍吃早餐" class="scene-image">
+                <div class="scene-content">
+                    <span class="scene-number">場景 2</span>
+                    <h3>健康的早餐</h3>
+                    <p>小軍坐在餐桌旁，媽媽為他準備了健康的早餐。媽媽告訴他吃早餐能給他一整天的能量。</p>
+                </div>
+            </div>
+
+            <!-- 場景3 - 修改圖片路徑 -->
+            <div class="scene-card fade-in">
+                <img src="media/image3.jpeg" alt="場景3：小軍自己穿衣服" class="scene-image">
+                <div class="scene-content">
+                    <span class="scene-number">場景 3</span>
+                    <h3>自理能力</h3>
+                    <p>小軍穿好衣服準備出門。他看著鏡子整理頭髮，然後學著自己穿鞋子。</p>
+                </div>
+            </div>
+
+            <!-- 場景4 - 修改圖片路徑 -->
+            <div class="scene-card fade-in">
+                <img src="media/image4.jpeg" alt="場景4：小軍在操場玩耍" class="scene-image">
+                <div class="scene-content">
+                    <span class="scene-number">場景 4</span>
+                    <h3>和同學玩耍</h3>
+                    <p>小軍在學校操場上和同學一起玩耍。他們一起跳繩和踢足球，每個人都玩得很開心。</p>
+                </div>
+            </div>
+
+            <!-- 場景5 - 修改圖片路徑 -->
+            <div class="scene-card fade-in">
+                <img src="media/image5.jpeg" alt="場景5：小軍認真上課" class="scene-image">
+                <div class="scene-content">
+                    <span class="scene-number">場景 5</span>
+                    <h3>課堂學習</h3>
+                    <p>在課堂上，小軍認真聽老師的課程，學習新知識。他學會了如何耐心傾聽。</p>
+                </div>
+            </div>
+
+            <!-- 場景6 - 修改圖片路徑 -->
+            <div class="scene-card fade-in">
+                <img src="media/image6.jpeg" alt="場景6：小軍分享午餐" class="scene-image">
+                <div class="scene-content">
+                    <span class="scene-number">場景 6</span>
+                    <h3>分享與感謝</h3>
+                    <p>午餐時間，小軍與朋友分享他的午餐。他學會了與他人分享，並記得感謝朋友。</p>
+                </div>
+            </div>
+
+            <!-- 場景7 - 修改圖片路徑 -->
+            <div class="scene-card fade-in">
+                <img src="media/image7.jpeg" alt="場景7：小軍在公園" class="scene-image">
+                <div class="scene-content">
+                    <span class="scene-number">場景 7</span>
+                    <h3>自然關懷</h3>
+                    <p>放學後，小軍去公園，看到一個小朋友在捉蝴蝶。他學會了如何通過輕輕地放飛蝴蝶來關心自然。</p>
+                </div>
+            </div>
+
+            <!-- 場景8 - 修改圖片路徑 -->
+            <div class="scene-card fade-in">
+                <img src="media/image8.jpeg" alt="場景8：小軍幫忙整理房間" class="scene-image">
+                <div class="scene-content">
+                    <span class="scene-number">場景 8</span>
+                    <h3>家務責任</h3>
+                    <p>小軍回到家後，幫媽媽整理房間。他意識到在家裡幫忙讓他更有責任感。</p>
+                </div>
+            </div>
+
+            <!-- 場景9 - 修改圖片路徑 -->
+            <div class="scene-card fade-in">
+                <img src="media/image9.jpeg" alt="場景9：小軍與家人共進晚餐" class="scene-image">
+                <div class="scene-content">
+                    <span class="scene-number">場景 9</span>
+                    <h3>家庭時光</h3>
+                    <p>晚餐時，小軍和家人坐在一起，開心地談論他的一天。他學會了珍惜與家人在一起的時光。</p>
+                </div>
+            </div>
+
+            <!-- 場景10 - 修改圖片路徑 -->
+            <div class="scene-card fade-in">
+                <img src="media/image10.jpeg" alt="場景10：小軍睡覺" class="scene-image">
+                <div class="scene-content">
+                    <span class="scene-number">場景 10</span>
+                    <h3>甜蜜的夢鄉</h3>
+                    <p>小軍躺在床上，回想著這一天的冒險，感到滿足和快樂。他期待著明天，然後安詳地入睡。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 生活教育部分 -->
+    <section id="lessons" class="story-lessons">
+        <div class="lessons-container">
+            <h2>小軍學到的生活智慧</h2>
+            <p>透過小軍的一天，孩子可以學習到很多重要的生活價值觀</p>
+            
+            <div class="lessons-grid">
+                <div class="lesson-item fade-in">
+                    <i class="fas fa-heart"></i>
+                    <h3>分享與關懷</h3>
+                    <p>小軍學會了分享午餐，以及如何關心周遭的人和自然環境</p>
+                </div>
+                
+                <div class="lesson-item fade-in">
+                    <i class="fas fa-home"></i>
+                    <h3>家庭責任</h3>
+                    <p>幫忙整理房間，學習承擔家庭責任</p>
+                </div>
+                
+                <div class="lesson-item fade-in">
+                    <i class="fas fa-user-friends"></i>
+                    <h3>友誼互助</h3>
+                    <p>在操場上和同學一起玩耍，學習合作和互相尊重</p>
+                </div>
+                
+                <div class="lesson-item fade-in">
+                    <i class="fas fa-book"></i>
+                    <h3>學習專注</h3>
+                    <p>在課堂上專心聽講，培養耐心和專注力</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 關於我們 -->
+    <section id="about" class="about-section">
+        <div class="about-content fade-in">
+            <h2>關於這個故事</h2>
+            <p>《小軍的一天》是一個專為學齡前兒童設計的教育故事。這個故事通過一個普通孩子的日常生活，傳達了許多重要的生活價值觀和技能。</p>
+            <p>我們相信，通過故事和圖像的結合，孩子們能夠更輕鬆地理解和內化這些重要的生活教育內容。故事中的小軍，展現了一個孩子如何在日常生活中學習成長，培養自理能力、社交能力和責任感。</p>
+            <p>希望這個故事能夠成為家長和老師的教育輔助工具，幫助孩子們學會生活中的重要課題。</p>
+        </div>
+        <div class="about-image fade-in">
+            <img src="media/image1.jpeg" alt="關於我們" class="about-img">
+        </div>
+    </section>
+
+    <!-- 聯絡我們 -->
+    <section id="contact" class="about-section">
+        <div class="about-image fade-in">
+            <img src="media/image10.jpeg" alt="聯絡我們" class="about-img">
+        </div>
+        <div class="about-content fade-in">
+            <h2>聯絡我們</h2>
+            <p>如果您對《小軍的一天》有任何問題或建議，歡迎隨時與我們聯繫。我們非常重視您的回饋，並將持續改進我們的內容。</p>
+            <p>您也可以關注我們的社交媒體，獲取更多兒童教育資源和最新故事更新。</p>
+            <p>電子郵件：info@xiaojunstory.com</p>
+            <p>電話：+886 2 1234 5678</p>
+        </div>
+    </section>
+
+    <!-- 頁尾 -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>關於我們</h3>
+                <ul>
+                    <li><a href="#">我們的故事</a></li>
+                    <li><a href="#">團隊介紹</a></li>
+                    <li><a href="#">使命與願景</a></li>
+                    <li><a href="#">加入我們</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>教育資源</h3>
+                <ul>
+                    <li><a href="#">更多故事</a></li>
+                    <li><a href="#">教師資源</a></li>
+                    <li><a href="#">家長指南</a></li>
+                    <li><a href="#">活動與工作坊</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>支持與服務</h3>
+                <ul>
+                    <li><a href="#">常見問題</a></li>
+                    <li><a href="#">聯絡我們</a></li>
+                    <li><a href="#">隱私政策</a></li>
+                    <li><a href="#">使用條款</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>追蹤我們</h3>
+                <p>獲取最新的故事和教育資源</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 小軍的一天 版權所有</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 漢堡選單功能
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+        
+        // 滾動動畫
+        window.addEventListener('scroll', () => {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        });
+        
+        // 輪播功能
+        const carouselSlide = document.querySelector('.carousel-slide');
+        const carouselImages = document.querySelectorAll('.carousel-slide img');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        const indicatorsContainer = document.querySelector('.carousel-indicators');
+        
+        // 創建指示點
+        carouselImages.forEach((_, index) => {
+            const indicator = document.createElement('div');
+            indicator.classList.add('indicator');
+            if (index === 0) indicator.classList.add('active');
+            indicatorsContainer.appendChild(indicator);
+            
+            indicator.addEventListener('click', () => {
+                counter = index;
+                updateCarousel();
+            });
+        });
+        
+        const indicators = document.querySelectorAll('.indicator');
+        
+        // 初始化輪播
+        let counter = 0;
+        const size = carouselImages[0].clientWidth;
+        
+        function updateCarousel() {
+            // 更新輪播位置
+            carouselSlide.style.transform = `

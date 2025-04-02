@@ -1,0 +1,91 @@
+/* 全域設定 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.8;
+    text-align: center; /* 文字置中 */
+  }
+  
+  /* 導覽列 */
+  header {
+    background-color: #333;
+    color: white;
+    padding: 15px;
+  }
+  
+  nav ul {
+    list-style: none;
+  }
+  
+  nav ul li {
+    display: inline-block;
+    margin: 0 20px;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+  }
+  
+  /* 內容區 */
+  main {
+    padding: 20px;
+    background-color: #f4f4f4;
+  }
+  
+  .scene {
+    margin-bottom: 50px;
+  }
+  
+  .scene h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+  
+  .scene img {
+    display: block;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 20px;
+  }
+  
+  .scene p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+  }
+  
+  /* 頁腳 */
+  footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 1.2em;
+  }
+  
+  /* RWD 調整 */
+  @media screen and (max-width: 768px) {
+    nav ul {
+      text-align: left;
+      padding-left: 20px;
+    }
+  
+    .scene img {
+      max-width: 100%;
+    }
+  
+    .scene h2 {
+      font-size: 2em;
+    }
+  
+    .scene p {
+      font-size: 1em;
+    }
+  }
+  
